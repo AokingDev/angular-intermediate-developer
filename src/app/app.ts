@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ContadorEstados } from './signals/component/contador-estados/contador-estados';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ContadorEstados],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('angular-intermediate-developer');
