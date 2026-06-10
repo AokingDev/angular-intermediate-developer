@@ -1,0 +1,159 @@
+:host {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #e5e7eb;
+  --success: #16a34a;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  display: block;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at top right, #e9efff 0%, var(--bg) 40%);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Card principal */
+:host > * {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Input + botón en línea */
+input[placeholder="Nueva tarea"] {
+  width: calc(100% - 132px);
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.98rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+input[placeholder="Nueva tarea"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  margin-left: 0.6rem;
+  padding: 0.75rem 1rem;
+  min-width: 110px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Separador y métricas */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1.2rem 0 1rem;
+}
+
+p {
+  margin: 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+p:first-of-type {
+  margin-top: 0.3rem;
+}
+
+/* Lista de tareas */
+ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform 0.12s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox bonito */
+li input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c7d2fe;
+  border-radius: 6px;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+li input[type="checkbox"]::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  transform: scale(0);
+  transition: transform 0.12s ease-in-out;
+  box-shadow: inset 1em 1em white;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
+}
+
+li input[type="checkbox"]:checked {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+li input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  input[placeholder="Nueva tarea"] {
+    width: 100%;
+    margin-bottom: 0.65rem;
+  }
+
+  button {
+    margin-left: 0;
+    width: 100%;
+  }
+}

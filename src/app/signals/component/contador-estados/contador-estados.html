@@ -1,0 +1,20 @@
+<h2>Lista de tareas</h2>
+
+<input [(ngModel)]="nuevaTarea" (keyup.enter)="agregaTarea()" placeholder="Nueva tarea">
+<button (click)="agregaTarea()">Agregar</button>
+
+<hr>
+
+<p>Total: {{ totalTareas() }}</p>
+<p>Completadas: {{ realizadas() }}</p>
+<p>Pendientes: {{ pendientes() }}</p>
+
+<ul>
+  <li *ngFor="let tarea of tareas()">
+    <input type="checkbox"
+           [checked]="tarea.completado"
+           (change)="actualizarTarea(tarea.id)">
+
+    {{ tarea.titulo }}
+  </li>
+</ul>
